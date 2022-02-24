@@ -1,0 +1,19 @@
+.ProgressBarContainer {
+  height: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.ProgressBar {
+  border: 1px solid pink;
+  background-color: pink;
+  font-size: 1px;
+  height: 100%;
+  transition: 0.5s;
+  text-align: center;
+  vertical-align: middle;
+}
