@@ -7,7 +7,7 @@ function ProgressBar({percent}) {
     return (
         <div className={styles.ProgressBarContainer} >
             <div className='progress-bar' className={styles.ProgressBar} style={{"width":percent}}>
-               {percent}
+               {percent} %
             </div>
         </div>
     )

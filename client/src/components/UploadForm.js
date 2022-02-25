@@ -13,8 +13,7 @@ function UploadForm() {
 
   const [percent, setPercent] = useState([]);
 
-  const fileSubmitHandler = async (e) => {
-    e.preventDefault();
+  const fileSubmitHandler = async () => {
     console.log("submit 함수 실행 check");
     const formData = new FormData();
 
@@ -25,21 +24,19 @@ function UploadForm() {
           formData.delete("image");
           formData.append("image", file.object);
 
-          const res = axios.post("/upload", formData, {
-            headers: { "Content-Type": "multi/form-data" },
-            onUploadProgress: (e) => {
-              setPercent((prevData) => {
-                const newData = [...prevData];
-                newData[index] = Math.round((100 * e.loaded) / e.total);
-                return newData;
-              });
-            },
-          });
-          console.log({ res });
-          setPercent([])
+          const res = axios
+            .post("/upload", formData, {
+              headers: { "Content-Type": "multi/form-data" },
+              onUploadProgress: (e) => {
+                setPercent((prevData) => {
+                  const newData = [...prevData];
+                  newData[index] = Math.round((100 * e.loaded) / e.total);
+                  return newData;
+                });
+              },
+            })
         })
       );
-      alert("파일 업로드 성공");
     } catch (err) {
       console.log(err);
     }
